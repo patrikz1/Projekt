@@ -38,7 +38,7 @@ namespace Projekt
         {
 
             //test, behöver ta in info från rss filen sen
-            string[] row = { "1", txtBoxURL.Text, comboFrekvens.SelectedItem.ToString(), comboKategori.SelectedItem.ToString() };
+            string[] row = { "2", txtBoxURL.Text, comboFrekvens.SelectedItem.ToString(), comboKategori.SelectedItem.ToString() };
             var listViewItem = new ListViewItem(row);
             listPodcasts.Items.Add(listViewItem);
         }
