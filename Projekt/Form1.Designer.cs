@@ -44,7 +44,7 @@
             this.btnRemovePod = new System.Windows.Forms.Button();
             this.lblKategorier = new System.Windows.Forms.Label();
             this.listCategories = new System.Windows.Forms.ListView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBoxCategories = new System.Windows.Forms.TextBox();
             this.btnNewCategory = new System.Windows.Forms.Button();
             this.btnSaveCategory = new System.Windows.Forms.Button();
             this.btnRemoveCategory = new System.Windows.Forms.Button();
@@ -197,12 +197,12 @@
             this.listCategories.UseCompatibleStateImageBehavior = false;
             this.listCategories.View = System.Windows.Forms.View.List;
             // 
-            // textBox1
+            // txtBoxCategories
             // 
-            this.textBox1.Location = new System.Drawing.Point(472, 192);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(258, 20);
-            this.textBox1.TabIndex = 12;
+            this.txtBoxCategories.Location = new System.Drawing.Point(472, 192);
+            this.txtBoxCategories.Name = "txtBoxCategories";
+            this.txtBoxCategories.Size = new System.Drawing.Size(258, 20);
+            this.txtBoxCategories.TabIndex = 12;
             // 
             // btnNewCategory
             // 
@@ -261,7 +261,7 @@
             this.Controls.Add(this.btnRemoveCategory);
             this.Controls.Add(this.btnSaveCategory);
             this.Controls.Add(this.btnNewCategory);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtBoxCategories);
             this.Controls.Add(this.listCategories);
             this.Controls.Add(this.lblKategorier);
             this.Controls.Add(this.btnRemovePod);
@@ -301,7 +301,7 @@
         private System.Windows.Forms.Button btnRemovePod;
         private System.Windows.Forms.Label lblKategorier;
         private System.Windows.Forms.ListView listCategories;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBoxCategories;
         private System.Windows.Forms.Button btnNewCategory;
         private System.Windows.Forms.Button btnSaveCategory;
         private System.Windows.Forms.Button btnRemoveCategory;

@@ -18,3 +18,13 @@ C:\Users\Patrik\Documents\GitHub\Projekt2\Projekt\obj\Debug\Projekt.csproj.Gener
 C:\Users\Patrik\Documents\GitHub\Projekt2\Projekt\obj\Debug\Projekt.csproj.CoreCompileInputs.cache
 C:\Users\Patrik\Documents\GitHub\Projekt2\Projekt\obj\Debug\Projekt.exe
 C:\Users\Patrik\Documents\GitHub\Projekt2\Projekt\obj\Debug\Projekt.pdb
+C:\Users\Patrik\Documents\GitHub\Projekt3\Projekt\bin\Debug\Projekt.exe.config
+C:\Users\Patrik\Documents\GitHub\Projekt3\Projekt\bin\Debug\Projekt.exe
+C:\Users\Patrik\Documents\GitHub\Projekt3\Projekt\bin\Debug\Projekt.pdb
+C:\Users\Patrik\Documents\GitHub\Projekt3\Projekt\obj\Debug\Projekt.csprojAssemblyReference.cache
+C:\Users\Patrik\Documents\GitHub\Projekt3\Projekt\obj\Debug\Projekt.PodcastPlayer.resources
+C:\Users\Patrik\Documents\GitHub\Projekt3\Projekt\obj\Debug\Projekt.Properties.Resources.resources
+C:\Users\Patrik\Documents\GitHub\Projekt3\Projekt\obj\Debug\Projekt.csproj.GenerateResource.cache
+C:\Users\Patrik\Documents\GitHub\Projekt3\Projekt\obj\Debug\Projekt.csproj.CoreCompileInputs.cache
+C:\Users\Patrik\Documents\GitHub\Projekt3\Projekt\obj\Debug\Projekt.exe
+C:\Users\Patrik\Documents\GitHub\Projekt3\Projekt\obj\Debug\Projekt.pdb
