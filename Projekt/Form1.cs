@@ -20,10 +20,7 @@ namespace Projekt
         }   
         
         private void Form1_Load(object sender, EventArgs e)
-        {
-            //Så första i comboBox inte är en tom ruta
-            comboFrekvens.SelectedIndex = 0;
-            comboKategori.SelectedIndex = 0;
+        {         
 
             // ---- poppulera listCategories samt comboBoxen *Inte klart* ---------
             List<string> categories = new List<string>();
@@ -33,7 +30,14 @@ namespace Projekt
             listCategories.Items.Add("Crime");
             listCategories.Items.Add("Romance");
             //foreach
-            comboKategori.Items.Add(categories.ToString());
+            comboKategori.Items.Add("Comedy");
+            comboKategori.Items.Add("Space");
+            comboKategori.Items.Add("Crime");
+            comboKategori.Items.Add("Romance");
+
+            //Så första i comboBox inte är en tom ruta
+            comboFrekvens.SelectedIndex = 0;
+            comboKategori.SelectedIndex = 0;
             //---------------------------------------------------------------------
         }
 
@@ -67,6 +71,14 @@ namespace Projekt
             var listViewItem = new ListViewItem(row);
             listPodcasts.Items.Add(listViewItem);
             txtBoxURL.Clear();
+        }
+
+        private void btnNewCategory_Click(object sender, EventArgs e)
+        {
+            listCategories.Items.Add(txtBoxCategories.Text.ToString());
+            comboKategori.Items.Add(txtBoxCategories.Text.ToString());
+            txtBoxCategories.Clear();
+
         }
     }
 }

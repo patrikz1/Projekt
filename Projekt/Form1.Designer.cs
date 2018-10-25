@@ -138,9 +138,6 @@
             // comboKategori
             // 
             this.comboKategori.FormattingEnabled = true;
-            this.comboKategori.Items.AddRange(new object[] {
-            "test",
-            "hej"});
             this.comboKategori.Location = new System.Drawing.Point(313, 208);
             this.comboKategori.Name = "comboKategori";
             this.comboKategori.Size = new System.Drawing.Size(121, 21);
@@ -212,6 +209,7 @@
             this.btnNewCategory.TabIndex = 13;
             this.btnNewCategory.Text = "Ny...";
             this.btnNewCategory.UseVisualStyleBackColor = true;
+            this.btnNewCategory.Click += new System.EventHandler(this.btnNewCategory_Click);
             // 
             // btnSaveCategory
             // 
