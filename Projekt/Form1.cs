@@ -22,14 +22,14 @@ namespace Projekt
         private void Form1_Load(object sender, EventArgs e)
         {         
 
-            // ---- poppulera listCategories samt comboBoxen *Inte klart* ---------
+            // ---- poppulera listCategories samt comboBoxen ---------
             List<string> categories = new List<string>();
 
             listCategories.Items.Add("Comedy");
             listCategories.Items.Add("Space");
             listCategories.Items.Add("Crime");
             listCategories.Items.Add("Romance");
-            //foreach
+            
             comboKategori.Items.Add("Comedy");
             comboKategori.Items.Add("Space");
             comboKategori.Items.Add("Crime");
