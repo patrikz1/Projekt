@@ -67,6 +67,7 @@
             this.listPodcasts.TabIndex = 0;
             this.listPodcasts.UseCompatibleStateImageBehavior = false;
             this.listPodcasts.View = System.Windows.Forms.View.Details;
+            this.listPodcasts.SelectedIndexChanged += new System.EventHandler(this.listPodcasts_SelectedIndexChanged);
             // 
             // headerAvsnitt
             // 

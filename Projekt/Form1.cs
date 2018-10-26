@@ -18,7 +18,7 @@ namespace Projekt
         {
             InitializeComponent();
         }
-        
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -26,7 +26,7 @@ namespace Projekt
             List<string> categories = new List<string>();
             listPodcasts.FullRowSelect = true;
             // ---- poppulera listCategories samt comboBoxen ---------
-          
+
 
             listCategories.Items.Add("Comedy");
             listCategories.Items.Add("Space");
@@ -49,13 +49,16 @@ namespace Projekt
 
         }
 
-      
+
+
         private void btnNewPod_Click(object sender, EventArgs e)
         {
             listAvsnitt.Clear();
             try
             {
-                string url = txtBoxURL.Text;
+                string url = "";
+                // lägg alla stringar (urler) någonstans, typ en xml fil, sen splitta med t.ex , till arrayer så url[0] är lika med listans index [0]
+                url = txtBoxURL.Text;
                 XmlReader xmlReader = XmlReader.Create(url);
                 SyndicationFeed syndicationFeed = SyndicationFeed.Load(xmlReader);
                 int i = 0;
@@ -63,13 +66,14 @@ namespace Projekt
                 {
                     String title = item.Title.Text;
                     i++;
-                    listAvsnitt.Items.Add(title); //måste fixa så den bara visar detta on selected item i listan
+                   // listAvsnitt.Items.Add(title); //måste fixa så den bara visar detta on selected item i listan
                 }
-                xmlReader.Close();
-
-                string[] row = { i.ToString(), syndicationFeed.Title.Text, comboFrekvens.SelectedItem.ToString(), comboKategori.SelectedItem.ToString() };
+                
+                string[] row = { i.ToString(), syndicationFeed.Title.Text, comboFrekvens.SelectedItem.ToString(), comboKategori.SelectedItem.ToString(), txtBoxURL.Text };
                 var listViewItem = new ListViewItem(row);
                 listPodcasts.Items.Add(listViewItem);
+
+                xmlReader.Close();
             }
             catch
             {
@@ -78,12 +82,33 @@ namespace Projekt
             txtBoxURL.Clear();
             
         }
-
+      
         private void btnNewCategory_Click(object sender, EventArgs e)
         {
             listCategories.Items.Add(txtBoxCategories.Text.ToString());
             comboKategori.Items.Add(txtBoxCategories.Text.ToString());
             txtBoxCategories.Clear();
+
+        }
+
+        private void listPodcasts_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listPodcasts.SelectedItems.Count > 0)
+            {
+                listAvsnitt.Clear();
+
+                string url = listPodcasts.SelectedItems[0].SubItems[4].Text;
+
+                XmlReader xmlReader = XmlReader.Create(url);
+                SyndicationFeed syndicationFeed = SyndicationFeed.Load(xmlReader);
+                foreach (SyndicationItem item in syndicationFeed.Items)
+                {
+                    String title = item.Title.Text;
+                    listAvsnitt.Items.Add(title); //måste fixa så den bara visar detta on selected item i listan
+                }
+                xmlReader.Close();
+            }
+        //Här är selected item som ska visa dess avsnitt med en xmlreader, behöver veta vad deras url är
 
         }
     }
