@@ -48,8 +48,9 @@ namespace Projekt
         {
 
         }
-
-
+        //Behöver flytta ut all kod till en annan klass och använda oss av get metoder, exempel på den under i spellista.cs
+        //Så vi kan få tillgång på listorna/txtbox i annan klass
+        public string TextBoxText { get { return txtBoxURL.Text; } }
 
         private void btnNewPod_Click(object sender, EventArgs e)
         {
@@ -57,7 +58,6 @@ namespace Projekt
             try
             {
                 string url = "";
-                // lägg alla stringar (urler) någonstans, typ en xml fil, sen splitta med t.ex , till arrayer så url[0] är lika med listans index [0]
                 url = txtBoxURL.Text;
                 XmlReader xmlReader = XmlReader.Create(url);
                 SyndicationFeed syndicationFeed = SyndicationFeed.Load(xmlReader);
