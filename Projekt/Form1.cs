@@ -64,9 +64,7 @@ namespace Projekt
                 int i = 0;
                 foreach (SyndicationItem item in syndicationFeed.Items)
                 {
-                    String title = item.Title.Text;
                     i++;
-                   // listAvsnitt.Items.Add(title); //måste fixa så den bara visar detta on selected item i listan
                 }
                 
                 string[] row = { i.ToString(), syndicationFeed.Title.Text, comboFrekvens.SelectedItem.ToString(), comboKategori.SelectedItem.ToString(), txtBoxURL.Text };

@@ -12,10 +12,8 @@ namespace Projekt
 {
     public class Spellista
     {
-        
         public void ReadXml()
         {
-            
             //Ska kanske flytta över btnNy's rss reader hit, då måste man använda det nedan på nåt sätt
             //TextBox url = Application.OpenForms["Form1"].Controls["txtBoxURL"] as TextBox;
            // XmlReader xmlReader = XmlReader.Create(url.Text);
