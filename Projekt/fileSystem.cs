@@ -9,6 +9,9 @@ namespace Projekt
 {
     class fileSystem
     {
+        PodcastPlayer podcastplayer = new PodcastPlayer();
+        fileSystem filesystem = new fileSystem();
+
         /* --- Directory.(Metoder) --- */
         public bool DirectoryExists(string path)
         {
@@ -75,7 +78,8 @@ namespace Projekt
         }
 
 
-        
+        /* Använda inom projektet flytta ner hit */
+
 
     }
 }

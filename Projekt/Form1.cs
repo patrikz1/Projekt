@@ -17,19 +17,22 @@ namespace Projekt
         public PodcastPlayer()
         {
             InitializeComponent();
-        }   
+        }
         
-        private void Form1_Load(object sender, EventArgs e)
-        {         
 
-            // ---- poppulera listCategories samt comboBoxen ---------
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
             List<string> categories = new List<string>();
+            listPodcasts.FullRowSelect = true;
+            // ---- poppulera listCategories samt comboBoxen ---------
+          
 
             listCategories.Items.Add("Comedy");
             listCategories.Items.Add("Space");
             listCategories.Items.Add("Crime");
             listCategories.Items.Add("Romance");
-            
+
             comboKategori.Items.Add("Comedy");
             comboKategori.Items.Add("Space");
             comboKategori.Items.Add("Crime");
@@ -41,11 +44,6 @@ namespace Projekt
             //---------------------------------------------------------------------
         }
 
-        private void listBoxKategorier_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnSavePod_Click(object sender, EventArgs e)
         {
 
@@ -55,22 +53,30 @@ namespace Projekt
         private void btnNewPod_Click(object sender, EventArgs e)
         {
             listAvsnitt.Clear();
-            string url = txtBoxURL.Text;
-            XmlReader xmlReader = XmlReader.Create(url);
-            SyndicationFeed syndicationFeed = SyndicationFeed.Load(xmlReader);
-            int i = 0;
-            foreach (SyndicationItem item in syndicationFeed.Items)
+            try
             {
-                String title = item.Title.Text;
-                i++;
-                listAvsnitt.Items.Add(title); //måste fixa så den bara visar detta on selected item i listan
-            }
-            xmlReader.Close();
+                string url = txtBoxURL.Text;
+                XmlReader xmlReader = XmlReader.Create(url);
+                SyndicationFeed syndicationFeed = SyndicationFeed.Load(xmlReader);
+                int i = 0;
+                foreach (SyndicationItem item in syndicationFeed.Items)
+                {
+                    String title = item.Title.Text;
+                    i++;
+                    listAvsnitt.Items.Add(title); //måste fixa så den bara visar detta on selected item i listan
+                }
+                xmlReader.Close();
 
-            string[] row = { i.ToString(), syndicationFeed.Title.Text, comboFrekvens.SelectedItem.ToString(), comboKategori.SelectedItem.ToString() };
-            var listViewItem = new ListViewItem(row);
-            listPodcasts.Items.Add(listViewItem);
+                string[] row = { i.ToString(), syndicationFeed.Title.Text, comboFrekvens.SelectedItem.ToString(), comboKategori.SelectedItem.ToString() };
+                var listViewItem = new ListViewItem(row);
+                listPodcasts.Items.Add(listViewItem);
+            }
+            catch
+            {
+                MessageBox.Show("Detta är felkoden, ge till programmeraren : " + e);
+            }
             txtBoxURL.Clear();
+            
         }
 
         private void btnNewCategory_Click(object sender, EventArgs e)

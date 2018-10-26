@@ -54,6 +54,7 @@
             // 
             // listPodcasts
             // 
+            this.listPodcasts.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.listPodcasts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.headerAvsnitt,
             this.headerNamn,

@@ -11,7 +11,8 @@ using System.ServiceModel.Syndication;
 namespace Projekt
 {
     public class Spellista
-    {    
+    {
+        
         public void ReadXml()
         {
             
