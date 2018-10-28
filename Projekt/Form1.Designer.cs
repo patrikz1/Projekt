@@ -50,6 +50,7 @@
             this.btnRemoveCategory = new System.Windows.Forms.Button();
             this.listAvsnitt = new System.Windows.Forms.ListView();
             this.lblAvsnitt = new System.Windows.Forms.Label();
+            this.lblDescription = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // listPodcasts
@@ -238,6 +239,7 @@
             this.listAvsnitt.Size = new System.Drawing.Size(411, 158);
             this.listAvsnitt.TabIndex = 16;
             this.listAvsnitt.UseCompatibleStateImageBehavior = false;
+            this.listAvsnitt.SelectedIndexChanged += new System.EventHandler(this.listAvsnitt_SelectedIndexChanged);
             // 
             // lblAvsnitt
             // 
@@ -250,12 +252,21 @@
             this.lblAvsnitt.Text = "Avsnitt\r\n";
             this.lblAvsnitt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lblDescription
+            // 
+            this.lblDescription.AutoSize = true;
+            this.lblDescription.Location = new System.Drawing.Point(498, 285);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(0, 13);
+            this.lblDescription.TabIndex = 18;
+            // 
             // PodcastPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(761, 480);
+            this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblAvsnitt);
             this.Controls.Add(this.listAvsnitt);
             this.Controls.Add(this.btnRemoveCategory);
@@ -307,5 +318,6 @@
         private System.Windows.Forms.Button btnRemoveCategory;
         private System.Windows.Forms.ListView listAvsnitt;
         private System.Windows.Forms.Label lblAvsnitt;
+        private System.Windows.Forms.Label lblDescription;
     }
 }

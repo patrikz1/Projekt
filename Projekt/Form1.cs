@@ -64,10 +64,11 @@ namespace Projekt
                 int i = 0;
                 foreach (SyndicationItem item in syndicationFeed.Items)
                 {
-                    i++;
+                    i++;                    
                 }
                 
-                string[] row = { i.ToString(), syndicationFeed.Title.Text, comboFrekvens.SelectedItem.ToString(), comboKategori.SelectedItem.ToString(), txtBoxURL.Text };
+                string[] row = { i.ToString(), syndicationFeed.Title.Text, comboFrekvens.SelectedItem.ToString(),
+                    comboKategori.SelectedItem.ToString(), txtBoxURL.Text,  };
                 var listViewItem = new ListViewItem(row);
                 listPodcasts.Items.Add(listViewItem);
 
@@ -88,6 +89,7 @@ namespace Projekt
             txtBoxCategories.Clear();
 
         }
+        //Item summary text till en textbox
 
         private void listPodcasts_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -101,13 +103,34 @@ namespace Projekt
                 SyndicationFeed syndicationFeed = SyndicationFeed.Load(xmlReader);
                 foreach (SyndicationItem item in syndicationFeed.Items)
                 {
-                    String title = item.Title.Text;
-                    listAvsnitt.Items.Add(title); //måste fixa så den bara visar detta on selected item i listan
+                     String title = item.Title.Text;
+                     listAvsnitt.Items.Add(title); 
+                    
                 }
                 xmlReader.Close();
             }
-        //Här är selected item som ska visa dess avsnitt med en xmlreader, behöver veta vad deras url är
 
+        }
+
+        private void listAvsnitt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+           /* lblDescription.Text = "";
+            if (listAvsnitt.SelectedItems.Count > 0)
+            {
+             
+                string url = listPodcasts.SelectedItems[0].SubItems[4].Text;
+               
+                XmlReader xmlReader = XmlReader.Create(url);
+                SyndicationFeed syndicationFeed = SyndicationFeed.Load(xmlReader);
+                foreach (SyndicationItem item in syndicationFeed.Items)
+                {
+                    String description = item.Summary.Text;
+
+                }
+                lblDescription.Text = syndicationFeed.Description.Text;
+                xmlReader.Close();
+            }
+            */
         }
     }
 }
