@@ -28,10 +28,10 @@ namespace Projekt
             // ---- poppulera listCategories samt comboBoxen ---------
 
 
-            listCategories.Items.Add("Comedy");
-            listCategories.Items.Add("Space");
-            listCategories.Items.Add("Crime");
-            listCategories.Items.Add("Romance");
+            lvCategories.Items.Add("Comedy");
+            lvCategories.Items.Add("Space");
+            lvCategories.Items.Add("Crime");
+            lvCategories.Items.Add("Romance");
 
             comboKategori.Items.Add("Comedy");
             comboKategori.Items.Add("Space");
@@ -84,7 +84,7 @@ namespace Projekt
       
         private void btnNewCategory_Click(object sender, EventArgs e)
         {
-            listCategories.Items.Add(txtBoxCategories.Text.ToString());
+            lvCategories.Items.Add(txtBoxCategories.Text.ToString());
             comboKategori.Items.Add(txtBoxCategories.Text.ToString());
             txtBoxCategories.Clear();
 
@@ -141,6 +141,23 @@ namespace Projekt
                 {
                     lvPodcasts.Items.Remove(item);
                     lvAvsnitt.Clear();
+                }
+            }
+        }
+
+        private void btnRemoveCategory_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in lvCategories.Items)
+            {
+                if (item.Selected)
+                {                   
+                    string category = item.Text;
+                    if (comboKategori.Items.Contains(category))
+                    {
+                        comboKategori.Items.Remove(category);
+                    }
+                    lvCategories.Items.Remove(item);
+
                 }
             }
         }

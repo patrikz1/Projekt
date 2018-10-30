@@ -43,7 +43,7 @@
             this.btnSavePod = new System.Windows.Forms.Button();
             this.btnRemovePod = new System.Windows.Forms.Button();
             this.lblKategorier = new System.Windows.Forms.Label();
-            this.listCategories = new System.Windows.Forms.ListView();
+            this.lvCategories = new System.Windows.Forms.ListView();
             this.txtBoxCategories = new System.Windows.Forms.TextBox();
             this.btnNewCategory = new System.Windows.Forms.Button();
             this.btnSaveCategory = new System.Windows.Forms.Button();
@@ -189,14 +189,14 @@
             this.lblKategorier.TabIndex = 10;
             this.lblKategorier.Text = "Kategorier : ";
             // 
-            // listCategories
+            // lvCategories
             // 
-            this.listCategories.Location = new System.Drawing.Point(472, 25);
-            this.listCategories.Name = "listCategories";
-            this.listCategories.Size = new System.Drawing.Size(258, 155);
-            this.listCategories.TabIndex = 11;
-            this.listCategories.UseCompatibleStateImageBehavior = false;
-            this.listCategories.View = System.Windows.Forms.View.List;
+            this.lvCategories.Location = new System.Drawing.Point(472, 25);
+            this.lvCategories.Name = "lvCategories";
+            this.lvCategories.Size = new System.Drawing.Size(258, 155);
+            this.lvCategories.TabIndex = 11;
+            this.lvCategories.UseCompatibleStateImageBehavior = false;
+            this.lvCategories.View = System.Windows.Forms.View.List;
             // 
             // txtBoxCategories
             // 
@@ -232,6 +232,7 @@
             this.btnRemoveCategory.TabIndex = 15;
             this.btnRemoveCategory.Text = "Ta bort...";
             this.btnRemoveCategory.UseVisualStyleBackColor = true;
+            this.btnRemoveCategory.Click += new System.EventHandler(this.btnRemoveCategory_Click);
             // 
             // lvAvsnitt
             // 
@@ -274,7 +275,7 @@
             this.Controls.Add(this.btnSaveCategory);
             this.Controls.Add(this.btnNewCategory);
             this.Controls.Add(this.txtBoxCategories);
-            this.Controls.Add(this.listCategories);
+            this.Controls.Add(this.lvCategories);
             this.Controls.Add(this.lblKategorier);
             this.Controls.Add(this.btnRemovePod);
             this.Controls.Add(this.btnSavePod);
@@ -312,7 +313,7 @@
         private System.Windows.Forms.Button btnSavePod;
         private System.Windows.Forms.Button btnRemovePod;
         private System.Windows.Forms.Label lblKategorier;
-        private System.Windows.Forms.ListView listCategories;
+        private System.Windows.Forms.ListView lvCategories;
         private System.Windows.Forms.TextBox txtBoxCategories;
         private System.Windows.Forms.Button btnNewCategory;
         private System.Windows.Forms.Button btnSaveCategory;
