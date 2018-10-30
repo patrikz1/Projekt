@@ -24,7 +24,7 @@ namespace Projekt
         {
 
             List<string> categories = new List<string>();
-            listPodcasts.FullRowSelect = true;
+            lvPodcasts.FullRowSelect = true;
             // ---- poppulera listCategories samt comboBoxen ---------
 
 
@@ -54,7 +54,7 @@ namespace Projekt
 
         private void btnNewPod_Click(object sender, EventArgs e)
         {
-            listAvsnitt.Clear();
+            lvAvsnitt.Clear();
             try
             {
                 string url = "";
@@ -70,7 +70,7 @@ namespace Projekt
                 string[] row = { i.ToString(), syndicationFeed.Title.Text, comboFrekvens.SelectedItem.ToString(),
                     comboKategori.SelectedItem.ToString(), txtBoxURL.Text,  };
                 var listViewItem = new ListViewItem(row);
-                listPodcasts.Items.Add(listViewItem);
+                lvPodcasts.Items.Add(listViewItem);
 
                 xmlReader.Close();
             }
@@ -93,18 +93,18 @@ namespace Projekt
 
         private void listPodcasts_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (listPodcasts.SelectedItems.Count > 0)
+            if (lvPodcasts.SelectedItems.Count > 0)
             {
-                listAvsnitt.Clear();
+                lvAvsnitt.Clear();
 
-                string url = listPodcasts.SelectedItems[0].SubItems[4].Text;
+                string url = lvPodcasts.SelectedItems[0].SubItems[4].Text;
 
                 XmlReader xmlReader = XmlReader.Create(url);
                 SyndicationFeed syndicationFeed = SyndicationFeed.Load(xmlReader);
                 foreach (SyndicationItem item in syndicationFeed.Items)
                 {
                      String title = item.Title.Text;
-                     listAvsnitt.Items.Add(title); 
+                     lvAvsnitt.Items.Add(title); 
                     
                 }
                 xmlReader.Close();
@@ -131,6 +131,18 @@ namespace Projekt
                 xmlReader.Close();
             }
             */
+        }
+
+        private void btnRemovePod_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in lvPodcasts.Items)
+            {
+                if (item.Selected)
+                {
+                    lvPodcasts.Items.Remove(item);
+                    lvAvsnitt.Clear();
+                }
+            }
         }
     }
 }
