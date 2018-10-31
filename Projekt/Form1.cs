@@ -34,19 +34,15 @@ namespace Projekt
         }
 
         private void btnNewPod_Click(object sender, EventArgs e)
-        {
-            lvAvsnitt.Clear();
+        {           
             var spellista = new Spellista();
-            spellista.BtnNewPod(txtBoxURL.Text, comboFrekvens, comboKategori, lvPodcasts);
-            txtBoxURL.Clear();
-            
+            spellista.BtnNewPod(txtBoxURL.Text, comboFrekvens, comboKategori, lvPodcasts,lvAvsnitt,txtBoxURL);                       
         }
       
         private void btnNewCategory_Click(object sender, EventArgs e)
         {
             var spellista = new Spellista();
-            spellista.AddCategories(lvCategories, comboKategori, txtBoxCategories.Text.ToString());
-            txtBoxCategories.Clear();
+            spellista.AddCategories(lvCategories, comboKategori, txtBoxCategories.Text.ToString(),txtBoxCategories);         
 
         }
 

@@ -20,8 +20,9 @@ namespace Projekt
 
 
 
-        public void BtnNewPod(string url,ComboBox comboFrekvens, ComboBox comboCategory,ListView podcast )
+        public void BtnNewPod(string url,ComboBox comboFrekvens, ComboBox comboCategory,ListView podcast,ListView avsnitt,TextBox txtBoxURL )
         {
+            avsnitt.Clear();
             var syndicationFeed = LoadFeed(CreateXmlReader(url));
             int i = Count(syndicationFeed);
 
@@ -30,6 +31,8 @@ namespace Projekt
 
             AddRow(podcast, AddContent(row));
             CreateXmlReader(url).Close();
+
+            txtBoxURL.Clear();
 
         }
 
@@ -84,10 +87,11 @@ namespace Projekt
             comboCategory.SelectedIndex = 0;
         }
 
-        public void AddCategories(ListView lvCategories, ComboBox comboCategory, string newCategory)
+        public void AddCategories(ListView lvCategories, ComboBox comboCategory, string newCategory, TextBox txtBoxCategories)
         {
             lvCategories.Items.Add(newCategory);
             comboCategory.Items.Add(newCategory);
+            txtBoxCategories.Clear();
         }
 
         public void FullRowSelect(ListView listView)
