@@ -57,6 +57,7 @@ namespace Projekt
             lvAvsnitt.Clear();
             try
             {
+                var spellista = new Spellista();
                 string url = "";
                 url = txtBoxURL.Text;
                 XmlReader xmlReader = XmlReader.Create(url);
@@ -68,10 +69,10 @@ namespace Projekt
                 }
                 
                 string[] row = { i.ToString(), syndicationFeed.Title.Text, comboFrekvens.SelectedItem.ToString(),
-                    comboKategori.SelectedItem.ToString(), txtBoxURL.Text,  };
-                var listViewItem = new ListViewItem(row);
-                lvPodcasts.Items.Add(listViewItem);
-
+                    comboKategori.SelectedItem.ToString(), txtBoxURL.Text };
+                
+                // så här ska allting se ut --------------------------
+                spellista.AddRow(lvPodcasts, spellista.AddContent(row));
                 xmlReader.Close();
             }
             catch

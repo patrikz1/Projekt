@@ -13,11 +13,20 @@ namespace Projekt
 {
     public class Spellista
     {
-        PodcastPlayer podcastplayer = new PodcastPlayer();
-        public void ReadXml()
-        {         
+        public ListViewItem AddContent(string[] myRow)
+        {
             
-                string url = podcastplayer.TextBoxText;              
+              return new ListViewItem(myRow);
+            
+        }
+      
+        public void AddRow(ListView listView ,ListViewItem listviewitem)
+        {
+                listView.Items.Add(listviewitem);
+        }
+        //  PodcastPlayer podcastplayer = new PodcastPlayer();
+        public void ReadXml()
+        {            
 
             //Ska kanske flytta över btnNy's rss reader hit, då måste man använda det nedan på nåt sätt
             //TextBox url = Application.OpenForms["Form1"].Controls["txtBoxURL"] as TextBox;
