@@ -19,7 +19,6 @@ namespace Projekt
             InitializeComponent();
         }
 
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -58,22 +57,16 @@ namespace Projekt
             try
             {
                 var spellista = new Spellista();
-                string url = "";
-                url = txtBoxURL.Text;
-                XmlReader xmlReader = XmlReader.Create(url);
-                SyndicationFeed syndicationFeed = SyndicationFeed.Load(xmlReader);
-                int i = 0;
-                foreach (SyndicationItem item in syndicationFeed.Items)
-                {
-                    i++;                    
-                }
                 
+                var url = txtBoxURL.Text;
+                var syndicationFeed = spellista.feed(spellista.CreateXmlReader(url));
+                int i = spellista.Count(syndicationFeed);
+
                 string[] row = { i.ToString(), syndicationFeed.Title.Text, comboFrekvens.SelectedItem.ToString(),
-                    comboKategori.SelectedItem.ToString(), txtBoxURL.Text };
-                
-                // så här ska allting se ut --------------------------
+                    comboKategori.SelectedItem.ToString(), url };
+
                 spellista.AddRow(lvPodcasts, spellista.AddContent(row));
-                xmlReader.Close();
+                spellista.CreateXmlReader(url).Close();
             }
             catch
             {
@@ -96,19 +89,20 @@ namespace Projekt
         {
             if (lvPodcasts.SelectedItems.Count > 0)
             {
+                var spellista = new Spellista();
+
                 lvAvsnitt.Clear();
 
                 string url = lvPodcasts.SelectedItems[0].SubItems[4].Text;
 
-                XmlReader xmlReader = XmlReader.Create(url);
-                SyndicationFeed syndicationFeed = SyndicationFeed.Load(xmlReader);
+                var syndicationFeed = spellista.feed(spellista.CreateXmlReader(url));
                 foreach (SyndicationItem item in syndicationFeed.Items)
                 {
                      String title = item.Title.Text;
                      lvAvsnitt.Items.Add(title); 
                     
                 }
-                xmlReader.Close();
+                spellista.CreateXmlReader(url).Close();
             }
 
         }

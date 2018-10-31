@@ -13,25 +13,33 @@ namespace Projekt
 {
     public class Spellista
     {
-        public ListViewItem AddContent(string[] myRow)
+
+        public int Count(SyndicationFeed syndicationFeed)
         {
-            
-              return new ListViewItem(myRow);
-            
+            return syndicationFeed.Items.Count();
+        }
+        public string url(string url)
+        {
+            return url;
+        }
+        public SyndicationFeed feed(XmlReader xmlreader)
+        {
+            return SyndicationFeed.Load(xmlreader);
+        }
+        public XmlReader CreateXmlReader(string url)
+        {
+            return XmlReader.Create(url);
+        }
+        public ListViewItem AddContent(string[] myRow)
+        {            
+              return new ListViewItem(myRow);            
         }
       
         public void AddRow(ListView listView ,ListViewItem listviewitem)
         {
                 listView.Items.Add(listviewitem);
         }
-        //  PodcastPlayer podcastplayer = new PodcastPlayer();
-        public void ReadXml()
-        {            
-
-            //Ska kanske flytta över btnNy's rss reader hit, då måste man använda det nedan på nåt sätt
-            //TextBox url = Application.OpenForms["Form1"].Controls["txtBoxURL"] as TextBox;
-            // XmlReader xmlReader = XmlReader.Create(url.Text);
-
-        }
+        
+      
     }
 }
