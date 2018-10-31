@@ -21,26 +21,11 @@ namespace Projekt
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            var spellista = new Spellista();
+            spellista.FullRowSelect(lvPodcasts);
+            spellista.Categories(lvCategories, comboKategori);
+            spellista.SelectedIndex(comboFrekvens, comboKategori);
 
-            List<string> categories = new List<string>();
-            lvPodcasts.FullRowSelect = true;
-            // ---- poppulera listCategories samt comboBoxen ---------
-
-
-            lvCategories.Items.Add("Comedy");
-            lvCategories.Items.Add("Space");
-            lvCategories.Items.Add("Crime");
-            lvCategories.Items.Add("Romance");
-
-            comboKategori.Items.Add("Comedy");
-            comboKategori.Items.Add("Space");
-            comboKategori.Items.Add("Crime");
-            comboKategori.Items.Add("Romance");
-
-            //Så första i comboBox inte är en tom ruta
-            comboFrekvens.SelectedIndex = 0;
-            comboKategori.SelectedIndex = 0;
-            //---------------------------------------------------------------------
         }
 
         private void btnSavePod_Click(object sender, EventArgs e)
@@ -51,60 +36,34 @@ namespace Projekt
         private void btnNewPod_Click(object sender, EventArgs e)
         {
             lvAvsnitt.Clear();
-            try
-            {
-                var spellista = new Spellista();
-                
-                var url = txtBoxURL.Text;
-                var syndicationFeed = spellista.feed(spellista.CreateXmlReader(url));
-                int i = spellista.Count(syndicationFeed);
-
-                string[] row = { i.ToString(), syndicationFeed.Title.Text, comboFrekvens.SelectedItem.ToString(),
-                    comboKategori.SelectedItem.ToString(), url };
-
-                spellista.AddRow(lvPodcasts, spellista.AddContent(row));
-                spellista.CreateXmlReader(url).Close();
-            }
-            catch
-            {
-                MessageBox.Show("Detta är felkoden, ge till programmeraren : " + e);
-            }
+            var spellista = new Spellista();
+            spellista.BtnNewPod(txtBoxURL.Text, comboFrekvens, comboKategori, lvPodcasts);
             txtBoxURL.Clear();
             
         }
       
         private void btnNewCategory_Click(object sender, EventArgs e)
         {
-            lvCategories.Items.Add(txtBoxCategories.Text.ToString());
-            comboKategori.Items.Add(txtBoxCategories.Text.ToString());
+            var spellista = new Spellista();
+            spellista.AddCategories(lvCategories, comboKategori, txtBoxCategories.Text.ToString());
             txtBoxCategories.Clear();
 
         }
-        //Item summary text till en textbox
 
         private void listPodcasts_SelectedIndexChanged(object sender, EventArgs e)
         {
+            var spellista = new Spellista();
             if (lvPodcasts.SelectedItems.Count > 0)
             {
-                var spellista = new Spellista();
-
-                lvAvsnitt.Clear();
-
-                string url = lvPodcasts.SelectedItems[0].SubItems[4].Text;
-
-                var syndicationFeed = spellista.feed(spellista.CreateXmlReader(url));
-                foreach (SyndicationItem item in syndicationFeed.Items)
-                {
-                     String title = item.Title.Text;
-                     lvAvsnitt.Items.Add(title); 
-                    
-                }
-                spellista.CreateXmlReader(url).Close();
+                spellista.IndexChangedPodcast(lvPodcasts, lvAvsnitt, lvPodcasts.SelectedItems[0].SubItems[4].Text,
+                spellista.LoadFeed(spellista.CreateXmlReader(lvPodcasts.SelectedItems[0].SubItems[4].Text)));
             }
-
         }
 
-        private void listAvsnitt_SelectedIndexChanged(object sender, EventArgs e)
+
+
+
+private void listAvsnitt_SelectedIndexChanged(object sender, EventArgs e)
         {
            /* lblDescription.Text = "";
             if (listAvsnitt.SelectedItems.Count > 0)
@@ -127,31 +86,15 @@ namespace Projekt
 
         private void btnRemovePod_Click(object sender, EventArgs e)
         {
-            foreach (ListViewItem item in lvPodcasts.Items)
-            {
-                if (item.Selected)
-                {
-                    lvPodcasts.Items.Remove(item);
-                    lvAvsnitt.Clear();
-                }
-            }
+            var spellista = new Spellista();
+            spellista.BtnRemovePod(lvPodcasts, lvAvsnitt);
         }
 
         private void btnRemoveCategory_Click(object sender, EventArgs e)
         {
-            foreach (ListViewItem item in lvCategories.Items)
-            {
-                if (item.Selected)
-                {                   
-                    string category = item.Text;
-                    if (comboKategori.Items.Contains(category))
-                    {
-                        comboKategori.Items.Remove(category);
-                    }
-                    lvCategories.Items.Remove(item);
-
-                }
-            }
+            var spellista = new Spellista();
+            spellista.BtnRemoveCategory(lvCategories, comboKategori);
         }
+
     }
 }
