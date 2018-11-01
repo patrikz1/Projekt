@@ -13,12 +13,33 @@ namespace Projekt
 {
     public class Spellista
     {
-        /* public string ImportantItems(SyndicationFeed syndicationFeed)
-         {
-             return syndicationFeed.Title.Text
-         } */
+        
 
 
+        public void HideSelection(ListView podcast, ListView avsnitt, ListView categories)
+        {
+            podcast.HideSelection = false;
+            avsnitt.HideSelection = false;
+            categories.HideSelection = false;
+        }
+        public void Description(string url, SyndicationFeed syndicationFeed, ListView podcast, ListView avsnitt, Label label)
+        {
+            /* string url = podcast.SelectedItems[0].SubItems[4].Text;
+              XElement XTemp = XElement.Load(url);
+              var queryCDATAXML = from element in XTemp.DescendantNodes()
+                                  where element.NodeType == System.Xml.XmlNodeType.CDATA
+                                  select element.Parent.Value.Trim();*/
+
+            url = podcast.SelectedItems[0].SubItems[4].Text;
+            syndicationFeed = LoadFeed(CreateXmlReader(url));
+            foreach (SyndicationItem item in syndicationFeed.Items)
+            {
+                
+                //String description = item.Summary.Text;
+                // label.Text = description;
+            }
+            CreateXmlReader(url).Close();
+        }
 
         public void BtnNewPod(string url,ComboBox comboFrekvens, ComboBox comboCategory,ListView podcast,ListView avsnitt,TextBox txtBoxURL )
         {

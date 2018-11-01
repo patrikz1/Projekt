@@ -25,7 +25,7 @@ namespace Projekt
             spellista.FullRowSelect(lvPodcasts);
             spellista.Categories(lvCategories, comboKategori);
             spellista.SelectedIndex(comboFrekvens, comboKategori);
-
+            spellista.HideSelection(lvPodcasts, lvAvsnitt, lvCategories);
         }
 
         private void btnSavePod_Click(object sender, EventArgs e)
@@ -61,6 +61,10 @@ namespace Projekt
 
 private void listAvsnitt_SelectedIndexChanged(object sender, EventArgs e)
         {
+            var spellista = new Spellista();
+            if(lvPodcasts.SelectedItems.Count > 0){
+                
+            }
            /* lblDescription.Text = "";
             if (listAvsnitt.SelectedItems.Count > 0)
             {
