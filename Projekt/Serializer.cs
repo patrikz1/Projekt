@@ -8,7 +8,7 @@ using System.Xml.Serialization;
 namespace Projekt
 {
   
-      /*  public class Serializer : Spellista
+      /*  public class Serializer
         {
             string filepath;
 
