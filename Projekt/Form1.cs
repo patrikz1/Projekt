@@ -14,6 +14,7 @@ namespace Projekt
 {
     public partial class PodcastPlayer : Form
     {
+        List<ListViewItem> lvItemList = new List<ListViewItem>();
         public PodcastPlayer()
         {
             InitializeComponent();
@@ -24,8 +25,12 @@ namespace Projekt
         {
             var spellista = new Spellista();
             var categories = new Categories();
-
+            var updatefrequency = new UpdateFrequency();
             categories.Categoriess(lvCategories, comboKategori);
+
+            updatefrequency.AddFrequency(comboFrekvens);
+            updatefrequency.List(lvPodcasts);
+
             spellista.FullRowSelect(lvPodcasts);
             spellista.SelectedIndex(comboFrekvens, comboKategori);
             spellista.HideSelection(lvPodcasts, lvCategories);

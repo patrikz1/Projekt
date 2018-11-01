@@ -130,9 +130,6 @@
             // comboFrekvens
             // 
             this.comboFrekvens.FormattingEnabled = true;
-            this.comboFrekvens.Items.AddRange(new object[] {
-            "hej",
-            "test"});
             this.comboFrekvens.Location = new System.Drawing.Point(171, 208);
             this.comboFrekvens.Name = "comboFrekvens";
             this.comboFrekvens.Size = new System.Drawing.Size(136, 21);

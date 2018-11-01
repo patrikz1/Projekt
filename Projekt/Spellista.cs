@@ -42,7 +42,8 @@ namespace Projekt
         {
             listView.FullRowSelect = true;
         }
-       
+
+        
       
     }
 }

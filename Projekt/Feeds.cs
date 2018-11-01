@@ -13,6 +13,7 @@ namespace Projekt
     class Feeds
 
     {
+
         public void Description(string url, SyndicationFeed syndicationFeed, ListView podcast, ListBox lbAvsnitt, TextBox txtBoxDescription)
         {
             url = podcast.SelectedItems[0].SubItems[4].Text;
@@ -32,11 +33,10 @@ namespace Projekt
             int i = Count(syndicationFeed);
 
             string[] row = { i.ToString(), syndicationFeed.Title.Text, comboFrekvens.SelectedItem.ToString(),
-                      comboCategory.SelectedItem.ToString(), url };
+                      comboCategory.SelectedItem.ToString(), url, DateTime.Now.ToString() };
 
             AddRow(podcast, AddContent(row));
             CreateXmlReader(url).Close();
-
             txtBoxURL.Clear();
 
         }
