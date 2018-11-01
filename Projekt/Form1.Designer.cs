@@ -241,6 +241,7 @@
             this.lvAvsnitt.Size = new System.Drawing.Size(411, 158);
             this.lvAvsnitt.TabIndex = 16;
             this.lvAvsnitt.UseCompatibleStateImageBehavior = false;
+            this.lvAvsnitt.View = System.Windows.Forms.View.List;
             this.lvAvsnitt.SelectedIndexChanged += new System.EventHandler(this.listAvsnitt_SelectedIndexChanged);
             // 
             // lblAvsnitt
