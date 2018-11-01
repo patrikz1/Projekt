@@ -13,10 +13,7 @@ namespace Projekt
 {
     public class Spellista
     {      
-        public Spellista()
-        {
-            Spellista spellista = new Spellista();
-        }
+       
         public void HideSelection (ListView podcast, ListView categories)
         {
             podcast.HideSelection = false;

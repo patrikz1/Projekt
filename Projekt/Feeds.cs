@@ -23,8 +23,6 @@ namespace Projekt
             var i = lbAvsnitt.SelectedIndex;
             txtBoxDescription.Clear();
             txtBoxDescription.Text = (Regex.Replace(description[i].InnerText, @"<.*?>", ""));
-            CreateXmlReader(url).Close();
-
         }
 
         public void BtnNewPod(string url, ComboBox comboFrekvens, ComboBox comboCategory, ListView podcast, ListBox lbAvsnitt, TextBox txtBoxURL)
