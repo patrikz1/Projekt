@@ -11,17 +11,18 @@ using System.Text.RegularExpressions;
 
 namespace Projekt
 {
-    public class Spellista
+    public class Spellista : TitleInterface
     {
-        
-        public void HideSelection(ListView podcast, ListBox lbAvsnitt, ListView categories)
+        public string Title { get; set; }
+
+      
+        public void HideSelection (ListView podcast, ListBox lbAvsnitt, ListView categories)
         {
             podcast.HideSelection = false;
             categories.HideSelection = false;
         }
         public void Description(string url, SyndicationFeed syndicationFeed, ListView podcast, ListBox lbAvsnitt, TextBox txtBoxDescription)
         {         
-            var spellista = new Spellista();
             url = podcast.SelectedItems[0].SubItems[4].Text;
             XmlDocument xmlDocument = new XmlDocument();
             xmlDocument.Load(url);
@@ -81,13 +82,13 @@ namespace Projekt
 
         public void IndexChangedPodcast(ListView podcasts,ListBox lbAvsnitt, string url, SyndicationFeed syndicationFeed)
         {
-            
+            var spellista = new Spellista();
                 lbAvsnitt.Text ="";
                 url = podcasts.SelectedItems[0].SubItems[4].Text;
                 syndicationFeed = LoadFeed(CreateXmlReader(url));
                 foreach (SyndicationItem item in syndicationFeed.Items)
                 {
-                    String title = item.Title.Text;
+                    string title = item.Title.Text;
                     lbAvsnitt.Items.Add(title);
 
                 }

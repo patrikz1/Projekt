@@ -19,6 +19,7 @@ namespace Projekt
             InitializeComponent();
         }
 
+      
         private void Form1_Load(object sender, EventArgs e)
         {
             var spellista = new Spellista();
@@ -55,8 +56,6 @@ namespace Projekt
                 spellista.LoadFeed(spellista.CreateXmlReader(lvPodcasts.SelectedItems[0].SubItems[4].Text)));
             }
         }
-
-
 
         private void btnRemovePod_Click(object sender, EventArgs e)
         {
