@@ -30,13 +30,18 @@ namespace Projekt
                                   where element.NodeType == System.Xml.XmlNodeType.CDATA
                                   select element.Parent.Value.Trim();*/
 
+
+            var spellista = new Spellista();
+            label.Text = "";
             url = podcast.SelectedItems[0].SubItems[4].Text;
-            syndicationFeed = LoadFeed(CreateXmlReader(url));
-            foreach (SyndicationItem item in syndicationFeed.Items)
+            XmlDocument xmlDocument = new XmlDocument();
+            xmlDocument.Load(url);
+            XmlNodeList description = xmlDocument.SelectNodes("//rss/channel/item/description");
+           
+            foreach (XmlNode item in description)
             {
-                
-                //String description = item.Summary.Text;
-                // label.Text = description;
+                label.Text = item.InnerText;
+
             }
             CreateXmlReader(url).Close();
         }

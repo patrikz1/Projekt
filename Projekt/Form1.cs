@@ -63,7 +63,8 @@ private void listAvsnitt_SelectedIndexChanged(object sender, EventArgs e)
         {
             var spellista = new Spellista();
             if(lvPodcasts.SelectedItems.Count > 0){
-                
+                spellista.Description(lvPodcasts.SelectedItems[0].SubItems[4].Text, spellista.LoadFeed(spellista.CreateXmlReader(lvPodcasts.SelectedItems[0].SubItems[4].Text)),
+                    lvPodcasts, lvAvsnitt, lblDescription);
             }
            /* lblDescription.Text = "";
             if (listAvsnitt.SelectedItems.Count > 0)
