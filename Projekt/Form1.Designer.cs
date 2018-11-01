@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listPodcasts = new System.Windows.Forms.ListView();
+            this.lvPodcasts = new System.Windows.Forms.ListView();
             this.headerAvsnitt = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.headerNamn = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.headerFrekvens = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -43,31 +43,32 @@
             this.btnSavePod = new System.Windows.Forms.Button();
             this.btnRemovePod = new System.Windows.Forms.Button();
             this.lblKategorier = new System.Windows.Forms.Label();
-            this.listCategories = new System.Windows.Forms.ListView();
+            this.lvCategories = new System.Windows.Forms.ListView();
             this.txtBoxCategories = new System.Windows.Forms.TextBox();
             this.btnNewCategory = new System.Windows.Forms.Button();
             this.btnSaveCategory = new System.Windows.Forms.Button();
             this.btnRemoveCategory = new System.Windows.Forms.Button();
-            this.listAvsnitt = new System.Windows.Forms.ListView();
+            this.lvAvsnitt = new System.Windows.Forms.ListView();
             this.lblAvsnitt = new System.Windows.Forms.Label();
+            this.lblDescription = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // listPodcasts
+            // lvPodcasts
             // 
-            this.listPodcasts.Activation = System.Windows.Forms.ItemActivation.OneClick;
-            this.listPodcasts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvPodcasts.Activation = System.Windows.Forms.ItemActivation.OneClick;
+            this.lvPodcasts.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.headerAvsnitt,
             this.headerNamn,
             this.headerFrekvens,
             this.headerKategori});
-            this.listPodcasts.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.listPodcasts.Location = new System.Drawing.Point(23, 25);
-            this.listPodcasts.Name = "listPodcasts";
-            this.listPodcasts.Size = new System.Drawing.Size(411, 155);
-            this.listPodcasts.TabIndex = 0;
-            this.listPodcasts.UseCompatibleStateImageBehavior = false;
-            this.listPodcasts.View = System.Windows.Forms.View.Details;
-            this.listPodcasts.SelectedIndexChanged += new System.EventHandler(this.listPodcasts_SelectedIndexChanged);
+            this.lvPodcasts.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.lvPodcasts.Location = new System.Drawing.Point(23, 25);
+            this.lvPodcasts.Name = "lvPodcasts";
+            this.lvPodcasts.Size = new System.Drawing.Size(411, 155);
+            this.lvPodcasts.TabIndex = 0;
+            this.lvPodcasts.UseCompatibleStateImageBehavior = false;
+            this.lvPodcasts.View = System.Windows.Forms.View.Details;
+            this.lvPodcasts.SelectedIndexChanged += new System.EventHandler(this.listPodcasts_SelectedIndexChanged);
             // 
             // headerAvsnitt
             // 
@@ -176,6 +177,7 @@
             this.btnRemovePod.TabIndex = 9;
             this.btnRemovePod.Text = "Ta bort...";
             this.btnRemovePod.UseVisualStyleBackColor = true;
+            this.btnRemovePod.Click += new System.EventHandler(this.btnRemovePod_Click);
             // 
             // lblKategorier
             // 
@@ -187,14 +189,14 @@
             this.lblKategorier.TabIndex = 10;
             this.lblKategorier.Text = "Kategorier : ";
             // 
-            // listCategories
+            // lvCategories
             // 
-            this.listCategories.Location = new System.Drawing.Point(472, 25);
-            this.listCategories.Name = "listCategories";
-            this.listCategories.Size = new System.Drawing.Size(258, 155);
-            this.listCategories.TabIndex = 11;
-            this.listCategories.UseCompatibleStateImageBehavior = false;
-            this.listCategories.View = System.Windows.Forms.View.List;
+            this.lvCategories.Location = new System.Drawing.Point(472, 25);
+            this.lvCategories.Name = "lvCategories";
+            this.lvCategories.Size = new System.Drawing.Size(258, 155);
+            this.lvCategories.TabIndex = 11;
+            this.lvCategories.UseCompatibleStateImageBehavior = false;
+            this.lvCategories.View = System.Windows.Forms.View.List;
             // 
             // txtBoxCategories
             // 
@@ -230,14 +232,17 @@
             this.btnRemoveCategory.TabIndex = 15;
             this.btnRemoveCategory.Text = "Ta bort...";
             this.btnRemoveCategory.UseVisualStyleBackColor = true;
+            this.btnRemoveCategory.Click += new System.EventHandler(this.btnRemoveCategory_Click);
             // 
-            // listAvsnitt
+            // lvAvsnitt
             // 
-            this.listAvsnitt.Location = new System.Drawing.Point(23, 285);
-            this.listAvsnitt.Name = "listAvsnitt";
-            this.listAvsnitt.Size = new System.Drawing.Size(411, 158);
-            this.listAvsnitt.TabIndex = 16;
-            this.listAvsnitt.UseCompatibleStateImageBehavior = false;
+            this.lvAvsnitt.Location = new System.Drawing.Point(23, 285);
+            this.lvAvsnitt.Name = "lvAvsnitt";
+            this.lvAvsnitt.Size = new System.Drawing.Size(411, 158);
+            this.lvAvsnitt.TabIndex = 16;
+            this.lvAvsnitt.UseCompatibleStateImageBehavior = false;
+            this.lvAvsnitt.View = System.Windows.Forms.View.List;
+            this.lvAvsnitt.SelectedIndexChanged += new System.EventHandler(this.listAvsnitt_SelectedIndexChanged);
             // 
             // lblAvsnitt
             // 
@@ -250,19 +255,28 @@
             this.lblAvsnitt.Text = "Avsnitt\r\n";
             this.lblAvsnitt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // lblDescription
+            // 
+            this.lblDescription.AutoSize = true;
+            this.lblDescription.Location = new System.Drawing.Point(498, 285);
+            this.lblDescription.Name = "lblDescription";
+            this.lblDescription.Size = new System.Drawing.Size(0, 13);
+            this.lblDescription.TabIndex = 18;
+            // 
             // PodcastPlayer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(761, 480);
+            this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.lblAvsnitt);
-            this.Controls.Add(this.listAvsnitt);
+            this.Controls.Add(this.lvAvsnitt);
             this.Controls.Add(this.btnRemoveCategory);
             this.Controls.Add(this.btnSaveCategory);
             this.Controls.Add(this.btnNewCategory);
             this.Controls.Add(this.txtBoxCategories);
-            this.Controls.Add(this.listCategories);
+            this.Controls.Add(this.lvCategories);
             this.Controls.Add(this.lblKategorier);
             this.Controls.Add(this.btnRemovePod);
             this.Controls.Add(this.btnSavePod);
@@ -273,7 +287,7 @@
             this.Controls.Add(this.lblKategori);
             this.Controls.Add(this.lblFrekvens);
             this.Controls.Add(this.lblURL);
-            this.Controls.Add(this.listPodcasts);
+            this.Controls.Add(this.lvPodcasts);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "PodcastPlayer";
             this.Text = "Podcast-Spelare";
@@ -285,7 +299,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ListView listPodcasts;
+        private System.Windows.Forms.ListView lvPodcasts;
         private System.Windows.Forms.ColumnHeader headerAvsnitt;
         private System.Windows.Forms.ColumnHeader headerNamn;
         private System.Windows.Forms.ColumnHeader headerFrekvens;
@@ -300,12 +314,13 @@
         private System.Windows.Forms.Button btnSavePod;
         private System.Windows.Forms.Button btnRemovePod;
         private System.Windows.Forms.Label lblKategorier;
-        private System.Windows.Forms.ListView listCategories;
+        private System.Windows.Forms.ListView lvCategories;
         private System.Windows.Forms.TextBox txtBoxCategories;
         private System.Windows.Forms.Button btnNewCategory;
         private System.Windows.Forms.Button btnSaveCategory;
         private System.Windows.Forms.Button btnRemoveCategory;
-        private System.Windows.Forms.ListView listAvsnitt;
+        private System.Windows.Forms.ListView lvAvsnitt;
         private System.Windows.Forms.Label lblAvsnitt;
+        private System.Windows.Forms.Label lblDescription;
     }
 }
