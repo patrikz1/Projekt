@@ -7,7 +7,7 @@ using System.Windows.Forms;
 using System.Xml;
 using System.ServiceModel.Syndication;
 using System.IO;
-
+using System.Text.RegularExpressions;
 
 namespace Projekt
 {
@@ -16,13 +16,12 @@ namespace Projekt
         
 
 
-        public void HideSelection(ListView podcast, ListView avsnitt, ListView categories)
+        public void HideSelection(ListView podcast, ListBox lbAvsnitt, ListView categories)
         {
             podcast.HideSelection = false;
-            avsnitt.HideSelection = false;
             categories.HideSelection = false;
         }
-        public void Description(string url, SyndicationFeed syndicationFeed, ListView podcast, ListView avsnitt, Label label)
+        public void Description(string url, SyndicationFeed syndicationFeed, ListView podcast, ListBox lbAvsnitt, ListBox lbDescription)
         {
             /* string url = podcast.SelectedItems[0].SubItems[4].Text;
               XElement XTemp = XElement.Load(url);
@@ -32,23 +31,20 @@ namespace Projekt
 
 
             var spellista = new Spellista();
-            label.Text = "";
             url = podcast.SelectedItems[0].SubItems[4].Text;
             XmlDocument xmlDocument = new XmlDocument();
             xmlDocument.Load(url);
             XmlNodeList description = xmlDocument.SelectNodes("//rss/channel/item/description");
-           
-            foreach (XmlNode item in description)
-            {
-                label.Text = item.InnerText;
-
-            }
+            
+            var i = lbAvsnitt.SelectedIndex;
+            lbDescription.Items.Clear();
+            lbDescription.Items.Add(Regex.Replace(description[i].InnerText, @"<.*?>",""));
             CreateXmlReader(url).Close();
         }
 
-        public void BtnNewPod(string url,ComboBox comboFrekvens, ComboBox comboCategory,ListView podcast,ListView avsnitt,TextBox txtBoxURL )
+        public void BtnNewPod(string url,ComboBox comboFrekvens, ComboBox comboCategory,ListView podcast,ListBox lbAvsnitt,TextBox txtBoxURL )
         {
-            avsnitt.Clear();
+            lbAvsnitt.Items.Clear();
             var syndicationFeed = LoadFeed(CreateXmlReader(url));
             int i = Count(syndicationFeed);
 
@@ -78,29 +74,29 @@ namespace Projekt
             }
         }
 
-        public void BtnRemovePod(ListView podcasts, ListView avsnitt)
+        public void BtnRemovePod(ListView podcasts, ListBox lbAvsnitt)
         {
             foreach(ListViewItem item in podcasts.Items)
             {
                 if (item.Selected)
                 {
                     podcasts.Items.Remove(item);
-                    avsnitt.Clear();
+                    lbAvsnitt.Text ="";
                 }
             }
         }
 
 
-        public void IndexChangedPodcast(ListView podcasts,ListView avsnitt, string url, SyndicationFeed syndicationFeed)
+        public void IndexChangedPodcast(ListView podcasts,ListBox lbAvsnitt, string url, SyndicationFeed syndicationFeed)
         {
             
-                avsnitt.Clear();
+                lbAvsnitt.Text ="";
                 url = podcasts.SelectedItems[0].SubItems[4].Text;
                 syndicationFeed = LoadFeed(CreateXmlReader(url));
                 foreach (SyndicationItem item in syndicationFeed.Items)
                 {
                     String title = item.Title.Text;
-                    avsnitt.Items.Add(title);
+                    lbAvsnitt.Items.Add(title);
 
                 }
                 CreateXmlReader(url).Close();

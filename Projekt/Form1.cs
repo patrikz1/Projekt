@@ -25,7 +25,7 @@ namespace Projekt
             spellista.FullRowSelect(lvPodcasts);
             spellista.Categories(lvCategories, comboKategori);
             spellista.SelectedIndex(comboFrekvens, comboKategori);
-            spellista.HideSelection(lvPodcasts, lvAvsnitt, lvCategories);
+            spellista.HideSelection(lvPodcasts, lbAvsnitt, lvCategories);
         }
 
         private void btnSavePod_Click(object sender, EventArgs e)
@@ -36,7 +36,7 @@ namespace Projekt
         private void btnNewPod_Click(object sender, EventArgs e)
         {           
             var spellista = new Spellista();
-            spellista.BtnNewPod(txtBoxURL.Text, comboFrekvens, comboKategori, lvPodcasts,lvAvsnitt,txtBoxURL);                       
+            spellista.BtnNewPod(txtBoxURL.Text, comboFrekvens, comboKategori, lvPodcasts,lbAvsnitt,txtBoxURL);                       
         }
       
         private void btnNewCategory_Click(object sender, EventArgs e)
@@ -51,44 +51,17 @@ namespace Projekt
             var spellista = new Spellista();
             if (lvPodcasts.SelectedItems.Count > 0)
             {
-                spellista.IndexChangedPodcast(lvPodcasts, lvAvsnitt, lvPodcasts.SelectedItems[0].SubItems[4].Text,
+                spellista.IndexChangedPodcast(lvPodcasts, lbAvsnitt, lvPodcasts.SelectedItems[0].SubItems[4].Text,
                 spellista.LoadFeed(spellista.CreateXmlReader(lvPodcasts.SelectedItems[0].SubItems[4].Text)));
             }
         }
 
 
 
-
-private void listAvsnitt_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var spellista = new Spellista();
-            if(lvPodcasts.SelectedItems.Count > 0){
-                spellista.Description(lvPodcasts.SelectedItems[0].SubItems[4].Text, spellista.LoadFeed(spellista.CreateXmlReader(lvPodcasts.SelectedItems[0].SubItems[4].Text)),
-                    lvPodcasts, lvAvsnitt, lblDescription);
-            }
-           /* lblDescription.Text = "";
-            if (listAvsnitt.SelectedItems.Count > 0)
-            {
-             
-                string url = listPodcasts.SelectedItems[0].SubItems[4].Text;
-               
-                XmlReader xmlReader = XmlReader.Create(url);
-                SyndicationFeed syndicationFeed = SyndicationFeed.Load(xmlReader);
-                foreach (SyndicationItem item in syndicationFeed.Items)
-                {
-                    String description = item.Summary.Text;
-
-                }
-                lblDescription.Text = syndicationFeed.Description.Text;
-                xmlReader.Close();
-            }
-            */
-        }
-
         private void btnRemovePod_Click(object sender, EventArgs e)
         {
             var spellista = new Spellista();
-            spellista.BtnRemovePod(lvPodcasts, lvAvsnitt);
+            spellista.BtnRemovePod(lvPodcasts, lbAvsnitt);
         }
 
         private void btnRemoveCategory_Click(object sender, EventArgs e)
@@ -97,5 +70,16 @@ private void listAvsnitt_SelectedIndexChanged(object sender, EventArgs e)
             spellista.BtnRemoveCategory(lvCategories, comboKategori);
         }
 
+        private void lbAvsnitt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+                var spellista = new Spellista();
+                if (lbAvsnitt.SelectedItems.Count > 0)
+                {
+                    spellista.Description(lvPodcasts.SelectedItems[0].SubItems[4].Text, spellista.LoadFeed(spellista.CreateXmlReader(lvPodcasts.SelectedItems[0].SubItems[4].Text)),
+                        lvPodcasts, lbAvsnitt, lbDescription);
+                }
+
+        }
     }
 }

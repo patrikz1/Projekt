@@ -48,9 +48,9 @@
             this.btnNewCategory = new System.Windows.Forms.Button();
             this.btnSaveCategory = new System.Windows.Forms.Button();
             this.btnRemoveCategory = new System.Windows.Forms.Button();
-            this.lvAvsnitt = new System.Windows.Forms.ListView();
             this.lblAvsnitt = new System.Windows.Forms.Label();
-            this.lblDescription = new System.Windows.Forms.Label();
+            this.lbAvsnitt = new System.Windows.Forms.ListBox();
+            this.lbDescription = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // lvPodcasts
@@ -234,16 +234,6 @@
             this.btnRemoveCategory.UseVisualStyleBackColor = true;
             this.btnRemoveCategory.Click += new System.EventHandler(this.btnRemoveCategory_Click);
             // 
-            // lvAvsnitt
-            // 
-            this.lvAvsnitt.Location = new System.Drawing.Point(23, 285);
-            this.lvAvsnitt.Name = "lvAvsnitt";
-            this.lvAvsnitt.Size = new System.Drawing.Size(411, 158);
-            this.lvAvsnitt.TabIndex = 16;
-            this.lvAvsnitt.UseCompatibleStateImageBehavior = false;
-            this.lvAvsnitt.View = System.Windows.Forms.View.List;
-            this.lvAvsnitt.SelectedIndexChanged += new System.EventHandler(this.listAvsnitt_SelectedIndexChanged);
-            // 
             // lblAvsnitt
             // 
             this.lblAvsnitt.AutoSize = true;
@@ -255,13 +245,22 @@
             this.lblAvsnitt.Text = "Avsnitt\r\n";
             this.lblAvsnitt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lblDescription
+            // lbAvsnitt
             // 
-            this.lblDescription.AutoSize = true;
-            this.lblDescription.Location = new System.Drawing.Point(498, 285);
-            this.lblDescription.Name = "lblDescription";
-            this.lblDescription.Size = new System.Drawing.Size(0, 13);
-            this.lblDescription.TabIndex = 18;
+            this.lbAvsnitt.FormattingEnabled = true;
+            this.lbAvsnitt.Location = new System.Drawing.Point(31, 285);
+            this.lbAvsnitt.Name = "lbAvsnitt";
+            this.lbAvsnitt.Size = new System.Drawing.Size(403, 173);
+            this.lbAvsnitt.TabIndex = 19;
+            this.lbAvsnitt.SelectedIndexChanged += new System.EventHandler(this.lbAvsnitt_SelectedIndexChanged);
+            // 
+            // lbDescription
+            // 
+            this.lbDescription.FormattingEnabled = true;
+            this.lbDescription.Location = new System.Drawing.Point(472, 285);
+            this.lbDescription.Name = "lbDescription";
+            this.lbDescription.Size = new System.Drawing.Size(258, 173);
+            this.lbDescription.TabIndex = 20;
             // 
             // PodcastPlayer
             // 
@@ -269,9 +268,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(761, 480);
-            this.Controls.Add(this.lblDescription);
+            this.Controls.Add(this.lbDescription);
+            this.Controls.Add(this.lbAvsnitt);
             this.Controls.Add(this.lblAvsnitt);
-            this.Controls.Add(this.lvAvsnitt);
             this.Controls.Add(this.btnRemoveCategory);
             this.Controls.Add(this.btnSaveCategory);
             this.Controls.Add(this.btnNewCategory);
@@ -319,8 +318,8 @@
         private System.Windows.Forms.Button btnNewCategory;
         private System.Windows.Forms.Button btnSaveCategory;
         private System.Windows.Forms.Button btnRemoveCategory;
-        private System.Windows.Forms.ListView lvAvsnitt;
         private System.Windows.Forms.Label lblAvsnitt;
-        private System.Windows.Forms.Label lblDescription;
+        private System.Windows.Forms.ListBox lbAvsnitt;
+        private System.Windows.Forms.ListBox lbDescription;
     }
 }
