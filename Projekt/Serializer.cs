@@ -7,23 +7,22 @@ using System.Xml.Serialization;
 
 namespace Projekt
 {
-    namespace Data
-    {
-        public class DataSerializer
+  
+        public class Serializer
         {
             string filepath;
 
 
-            public DataSerializer()
+            public Serializer()
             {
                 var folder = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
                 filepath = System.IO.Path.Combine(folder, "Feeds");
             }
 
-            public void SaveToFile(List<Tillvårfeed> feed)
+            public void SaveFile(List<Tillvårfeed> feed)
             {
-                List<klassenSomTarEmotItems> Items = feed.Select(x => new SerializerItem(x)).ToList();
-                var xml = new System.Xml.Serialization.XmlSerializer(typeof(List<SerializerItem>));
+                List<klassenSomTarEmotItems> Items = feed.Select(x => new SerializerItems(x)).ToList();
+                var xml = new System.Xml.Serialization.XmlSerializer(typeof(List<SerializerItems>));
                 using (var f = System.IO.File.Open(filepath, System.IO.FileMode.Create))
                 {
 
@@ -33,19 +32,19 @@ namespace Projekt
                 }
             }
 
-            public delegate void Del(SerializerItem returFeed);
+            public delegate void Del(SerializerItems returFeed);
 
 
             public void LoadFromFile(Del Callback)
             {
                 if (System.IO.File.Exists(filepath))
                 {
-                    List<SerializerItem> returFeed;
+                    List<SerializerItems> returFeed;
 
-                    var xml = new System.Xml.Serialization.XmlSerializer(typeof(List<SerializerItem>));
+                    var xml = new System.Xml.Serialization.XmlSerializer(typeof(List<SerializerItems>));
                     using (var s = System.IO.File.Open(filepath, System.IO.FileMode.Open))
                     {
-                        returFeed = xml.Deserialize(s) as List<SerializerItem>;
+                        returFeed = xml.Deserialize(s) as List<SerializerItems>;
                         s.Flush();
                         s.Close();
                     }
