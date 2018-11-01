@@ -50,7 +50,7 @@
             this.btnRemoveCategory = new System.Windows.Forms.Button();
             this.lblAvsnitt = new System.Windows.Forms.Label();
             this.lbAvsnitt = new System.Windows.Forms.ListBox();
-            this.lbDescription = new System.Windows.Forms.ListBox();
+            this.txtBoxDescription = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lvPodcasts
@@ -254,13 +254,14 @@
             this.lbAvsnitt.TabIndex = 19;
             this.lbAvsnitt.SelectedIndexChanged += new System.EventHandler(this.lbAvsnitt_SelectedIndexChanged);
             // 
-            // lbDescription
+            // txtBoxDescription
             // 
-            this.lbDescription.FormattingEnabled = true;
-            this.lbDescription.Location = new System.Drawing.Point(472, 285);
-            this.lbDescription.Name = "lbDescription";
-            this.lbDescription.Size = new System.Drawing.Size(258, 173);
-            this.lbDescription.TabIndex = 20;
+            this.txtBoxDescription.Location = new System.Drawing.Point(472, 285);
+            this.txtBoxDescription.Multiline = true;
+            this.txtBoxDescription.Name = "txtBoxDescription";
+            this.txtBoxDescription.ReadOnly = true;
+            this.txtBoxDescription.Size = new System.Drawing.Size(258, 173);
+            this.txtBoxDescription.TabIndex = 20;
             // 
             // PodcastPlayer
             // 
@@ -268,7 +269,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(761, 480);
-            this.Controls.Add(this.lbDescription);
+            this.Controls.Add(this.txtBoxDescription);
             this.Controls.Add(this.lbAvsnitt);
             this.Controls.Add(this.lblAvsnitt);
             this.Controls.Add(this.btnRemoveCategory);
@@ -320,6 +321,6 @@
         private System.Windows.Forms.Button btnRemoveCategory;
         private System.Windows.Forms.Label lblAvsnitt;
         private System.Windows.Forms.ListBox lbAvsnitt;
-        private System.Windows.Forms.ListBox lbDescription;
+        private System.Windows.Forms.TextBox txtBoxDescription;
     }
 }

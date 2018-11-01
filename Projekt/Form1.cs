@@ -77,7 +77,7 @@ namespace Projekt
                 if (lbAvsnitt.SelectedItems.Count > 0)
                 {
                     spellista.Description(lvPodcasts.SelectedItems[0].SubItems[4].Text, spellista.LoadFeed(spellista.CreateXmlReader(lvPodcasts.SelectedItems[0].SubItems[4].Text)),
-                        lvPodcasts, lbAvsnitt, lbDescription);
+                        lvPodcasts, lbAvsnitt, txtBoxDescription);
                 }
 
         }

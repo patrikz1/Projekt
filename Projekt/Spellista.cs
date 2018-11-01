@@ -21,7 +21,7 @@ namespace Projekt
             podcast.HideSelection = false;
             categories.HideSelection = false;
         }
-        public void Description(string url, SyndicationFeed syndicationFeed, ListView podcast, ListBox lbAvsnitt, ListBox lbDescription)
+        public void Description(string url, SyndicationFeed syndicationFeed, ListView podcast, ListBox lbAvsnitt, TextBox txtBoxDescription)
         {
             /* string url = podcast.SelectedItems[0].SubItems[4].Text;
               XElement XTemp = XElement.Load(url);
@@ -37,8 +37,8 @@ namespace Projekt
             XmlNodeList description = xmlDocument.SelectNodes("//rss/channel/item/description");
             
             var i = lbAvsnitt.SelectedIndex;
-            lbDescription.Items.Clear();
-            lbDescription.Items.Add(Regex.Replace(description[i].InnerText, @"<.*?>",""));
+            txtBoxDescription.Clear();
+            txtBoxDescription.Text = (Regex.Replace(description[i].InnerText, @"<.*?>",""));
             CreateXmlReader(url).Close();
         }
 
