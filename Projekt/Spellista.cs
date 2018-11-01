@@ -14,22 +14,13 @@ namespace Projekt
     public class Spellista
     {
         
-
-
         public void HideSelection(ListView podcast, ListBox lbAvsnitt, ListView categories)
         {
             podcast.HideSelection = false;
             categories.HideSelection = false;
         }
         public void Description(string url, SyndicationFeed syndicationFeed, ListView podcast, ListBox lbAvsnitt, TextBox txtBoxDescription)
-        {
-            /* string url = podcast.SelectedItems[0].SubItems[4].Text;
-              XElement XTemp = XElement.Load(url);
-              var queryCDATAXML = from element in XTemp.DescendantNodes()
-                                  where element.NodeType == System.Xml.XmlNodeType.CDATA
-                                  select element.Parent.Value.Trim();*/
-
-
+        {         
             var spellista = new Spellista();
             url = podcast.SelectedItems[0].SubItems[4].Text;
             XmlDocument xmlDocument = new XmlDocument();
@@ -40,6 +31,7 @@ namespace Projekt
             txtBoxDescription.Clear();
             txtBoxDescription.Text = (Regex.Replace(description[i].InnerText, @"<.*?>",""));
             CreateXmlReader(url).Close();
+
         }
 
         public void BtnNewPod(string url,ComboBox comboFrekvens, ComboBox comboCategory,ListView podcast,ListBox lbAvsnitt,TextBox txtBoxURL )
@@ -122,11 +114,13 @@ namespace Projekt
         }
         public void Categories(ListView listview, ComboBox cbox)
         {
+            listview.Items.Add("All Categories");
             listview.Items.Add("Comedy");
             listview.Items.Add("Space");
             listview.Items.Add("Crime");
             listview.Items.Add("Romance");
 
+            cbox.Items.Add("All Categories");
             cbox.Items.Add("Comedy");
             cbox.Items.Add("Space");
             cbox.Items.Add("Crime");
