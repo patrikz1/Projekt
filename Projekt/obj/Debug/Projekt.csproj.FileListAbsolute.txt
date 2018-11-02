@@ -45,6 +45,7 @@ C:\Users\Patrik\Documents\GitHub\realprojekt\Projekt\obj\Debug\Projekt.pdb
 C:\Users\Patrik\Documents\GitHub\realprojekt\Projekt\bin\Debug\Projekt.exe.config
 C:\Users\Patrik\Documents\GitHub\realprojekt\Projekt\bin\Debug\Projekt.exe
 C:\Users\Patrik\Documents\GitHub\realprojekt\Projekt\bin\Debug\Projekt.pdb
+<<<<<<< HEAD
 C:\Users\macka\Documents\GitHub\Projekt6\Projekt\obj\Debug\Projekt.csprojAssemblyReference.cache
 C:\Users\macka\Documents\GitHub\Projekt6\Projekt\obj\Debug\Projekt.PodcastPlayer.resources
 C:\Users\macka\Documents\GitHub\Projekt6\Projekt\obj\Debug\Projekt.Properties.Resources.resources
@@ -55,3 +56,15 @@ C:\Users\macka\Documents\GitHub\Projekt6\Projekt\obj\Debug\Projekt.pdb
 C:\Users\macka\Documents\GitHub\Projekt6\Projekt\bin\Debug\Projekt.exe.config
 C:\Users\macka\Documents\GitHub\Projekt6\Projekt\bin\Debug\Projekt.exe
 C:\Users\macka\Documents\GitHub\Projekt6\Projekt\bin\Debug\Projekt.pdb
+=======
+C:\Users\Patrik\Documents\GitHub\Projektnew\Projekt\bin\Debug\Projekt.exe.config
+C:\Users\Patrik\Documents\GitHub\Projektnew\Projekt\bin\Debug\Projekt.exe
+C:\Users\Patrik\Documents\GitHub\Projektnew\Projekt\bin\Debug\Projekt.pdb
+C:\Users\Patrik\Documents\GitHub\Projektnew\Projekt\obj\Debug\Projekt.csprojAssemblyReference.cache
+C:\Users\Patrik\Documents\GitHub\Projektnew\Projekt\obj\Debug\Projekt.PodcastPlayer.resources
+C:\Users\Patrik\Documents\GitHub\Projektnew\Projekt\obj\Debug\Projekt.Properties.Resources.resources
+C:\Users\Patrik\Documents\GitHub\Projektnew\Projekt\obj\Debug\Projekt.csproj.GenerateResource.cache
+C:\Users\Patrik\Documents\GitHub\Projektnew\Projekt\obj\Debug\Projekt.csproj.CoreCompileInputs.cache
+C:\Users\Patrik\Documents\GitHub\Projektnew\Projekt\obj\Debug\Projekt.exe
+C:\Users\Patrik\Documents\GitHub\Projektnew\Projekt\obj\Debug\Projekt.pdb
+>>>>>>> d0333d7a475405d5de4650ec13766609b677f8df

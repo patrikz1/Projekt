@@ -7,8 +7,8 @@ using System.Xml.Serialization;
 
 namespace Projekt
 {
-  /*
-        public class Serializer
+  
+      /*  public class Serializer
         {
             string filepath;
 
