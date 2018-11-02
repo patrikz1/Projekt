@@ -34,15 +34,27 @@ namespace Projekt
         }
 
         private void btnNewPod_Click(object sender, EventArgs e)
-        {           
-            var spellista = new Spellista();
-            spellista.BtnNewPod(txtBoxURL.Text, comboFrekvens, comboKategori, lvPodcasts,lvAvsnitt,txtBoxURL);                       
+        {
+            try
+            {
+
+                if (Validering.txtBoxInteTomt(txtBoxURL))
+                {
+
+                    var spellista = new Spellista();
+                    spellista.BtnNewPod(txtBoxURL.Text, comboFrekvens, comboKategori, lvPodcasts, lvAvsnitt, txtBoxURL);
+                }
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show(er.Message);
+            }
         }
-      
+
         private void btnNewCategory_Click(object sender, EventArgs e)
         {
             var spellista = new Spellista();
-            spellista.AddCategories(lvCategories, comboKategori, txtBoxCategories.Text.ToString(),txtBoxCategories);         
+            spellista.AddCategories(lvCategories, comboKategori, txtBoxCategories.Text.ToString(), txtBoxCategories);
 
         }
 
@@ -59,42 +71,79 @@ namespace Projekt
 
 
 
-private void listAvsnitt_SelectedIndexChanged(object sender, EventArgs e)
+        private void listAvsnitt_SelectedIndexChanged(object sender, EventArgs e)
         {
             var spellista = new Spellista();
-            if(lvPodcasts.SelectedItems.Count > 0){
-                
-            }
-           /* lblDescription.Text = "";
-            if (listAvsnitt.SelectedItems.Count > 0)
+            if (lvPodcasts.SelectedItems.Count > 0)
             {
-             
-                string url = listPodcasts.SelectedItems[0].SubItems[4].Text;
-               
-                XmlReader xmlReader = XmlReader.Create(url);
-                SyndicationFeed syndicationFeed = SyndicationFeed.Load(xmlReader);
-                foreach (SyndicationItem item in syndicationFeed.Items)
-                {
-                    String description = item.Summary.Text;
 
-                }
-                lblDescription.Text = syndicationFeed.Description.Text;
-                xmlReader.Close();
             }
-            */
+            /* lblDescription.Text = "";
+             if (listAvsnitt.SelectedItems.Count > 0)
+             {
+
+                 string url = listPodcasts.SelectedItems[0].SubItems[4].Text;
+
+                 XmlReader xmlReader = XmlReader.Create(url);
+                 SyndicationFeed syndicationFeed = SyndicationFeed.Load(xmlReader);
+                 foreach (SyndicationItem item in syndicationFeed.Items)
+                 {
+                     String description = item.Summary.Text;
+
+                 }
+                 lblDescription.Text = syndicationFeed.Description.Text;
+                 xmlReader.Close();
+             }
+             */
         }
 
         private void btnRemovePod_Click(object sender, EventArgs e)
         {
-            var spellista = new Spellista();
-            spellista.BtnRemovePod(lvPodcasts, lvAvsnitt);
+            try
+            {
+                if (Validering.taBort2(lvPodcasts))
+                {
+                    var bekrafta = MessageBox.Show("Är du säker på att du vill radera den här podcasten?", "Radera pocast", MessageBoxButtons.YesNo);
+
+                    if (bekrafta == DialogResult.Yes)
+                    {
+
+                        var spellista = new Spellista();
+                        spellista.BtnRemovePod(lvPodcasts, lvAvsnitt);
+                        MessageBox.Show("Podcast Borttagen");
+                    }
+                }
+            }
+            
+            catch (Exception er)
+            {
+                MessageBox.Show(er.Message);
+            }
         }
+    
 
         private void btnRemoveCategory_Click(object sender, EventArgs e)
         {
-            var spellista = new Spellista();
-            spellista.BtnRemoveCategory(lvCategories, comboKategori);
-        }
+            try
+            {
+                if (Validering.taBort(lvCategories))
+                {
+                    var bekrafta = MessageBox.Show("Är du säker på att du vill radera den här kategorin?", "Radera kategori", MessageBoxButtons.YesNo);
 
+                    if (bekrafta == DialogResult.Yes)
+                    {
+
+                        var spellista = new Spellista();
+                        spellista.BtnRemoveCategory(lvCategories, comboKategori);
+                        MessageBox.Show("Kategori Borttagen");
+                    }
+
+                }
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show(er.Message);
+            }
+        }
     }
 }

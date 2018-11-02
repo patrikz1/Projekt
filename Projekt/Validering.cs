@@ -7,15 +7,15 @@ using System.Windows.Forms;
 
 namespace Projekt
 {
-    class Validering
+    public class Validering
     {
-        public static bool tfInteTomt(TextBox falt, string label)
+        public static bool txtBoxInteTomt(TextBox txtBoxURL)
         {
 
-            if (falt.Text == "")
+            if (txtBoxURL.Text == "")
             {
 
-                MessageBox.Show(label + " får inte sakna ett värde.");
+                MessageBox.Show("Det får inte saknas ett värde.");
                 return false;
 
             }
@@ -44,7 +44,7 @@ namespace Projekt
         {
             if (cb.Text == "")
             {
-                MessageBox.Show("Listan får inte vara tom.");
+                MessageBox.Show("Det saknas ett värde.");
                 return false;
             }
             else
@@ -52,9 +52,9 @@ namespace Projekt
                 return true;
             }
         }
-        public static bool TaBort(ListBox list)
+        public static bool taBort(ListView lvCategories)
         {
-            if (list.Text == "")
+            if (lvCategories == null)
             {
                 MessageBox.Show("Du måste välja något.");
                 return false;
@@ -65,6 +65,21 @@ namespace Projekt
                 return true;
             }
         }
+
+        public static bool taBort2(ListView lvPodcasts)
+        {
+            if (lvPodcasts == null)
+            {
+                MessageBox.Show("Du måste välja något.");
+                return false;
+            }
+            else
+            {
+
+                return true;
+            }
+        }
+
         public static bool riktigURL(string url)
         {
             try

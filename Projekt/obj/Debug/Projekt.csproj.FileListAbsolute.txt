@@ -45,3 +45,13 @@ C:\Users\Patrik\Documents\GitHub\realprojekt\Projekt\obj\Debug\Projekt.pdb
 C:\Users\Patrik\Documents\GitHub\realprojekt\Projekt\bin\Debug\Projekt.exe.config
 C:\Users\Patrik\Documents\GitHub\realprojekt\Projekt\bin\Debug\Projekt.exe
 C:\Users\Patrik\Documents\GitHub\realprojekt\Projekt\bin\Debug\Projekt.pdb
+C:\Users\macka\Documents\GitHub\Projekt6\Projekt\obj\Debug\Projekt.csprojAssemblyReference.cache
+C:\Users\macka\Documents\GitHub\Projekt6\Projekt\obj\Debug\Projekt.PodcastPlayer.resources
+C:\Users\macka\Documents\GitHub\Projekt6\Projekt\obj\Debug\Projekt.Properties.Resources.resources
+C:\Users\macka\Documents\GitHub\Projekt6\Projekt\obj\Debug\Projekt.csproj.GenerateResource.cache
+C:\Users\macka\Documents\GitHub\Projekt6\Projekt\obj\Debug\Projekt.csproj.CoreCompileInputs.cache
+C:\Users\macka\Documents\GitHub\Projekt6\Projekt\obj\Debug\Projekt.exe
+C:\Users\macka\Documents\GitHub\Projekt6\Projekt\obj\Debug\Projekt.pdb
+C:\Users\macka\Documents\GitHub\Projekt6\Projekt\bin\Debug\Projekt.exe.config
+C:\Users\macka\Documents\GitHub\Projekt6\Projekt\bin\Debug\Projekt.exe
+C:\Users\macka\Documents\GitHub\Projekt6\Projekt\bin\Debug\Projekt.pdb
