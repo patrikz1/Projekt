@@ -18,13 +18,12 @@ namespace Projekt
             frequency.Items.Add("One month");
         }
 
-        public List<ListViewItem> List(ListView view)
+        public List<ListViewItem> List(ListView listview)
         {
             List<ListViewItem> allItems = new List<ListViewItem>();
-            foreach (ListViewItem item in view.Items)
+            foreach (ListViewItem lvitem in listview.Items)
             {
-                allItems.Add(item);
-                MessageBox.Show(item.ToString());
+                allItems.Add(lvitem);
             }
             return allItems;
         }
@@ -37,7 +36,6 @@ namespace Projekt
             }
             return updates;
         }
-
         public static bool Frequency(ListViewItem lvitem)
         {
 

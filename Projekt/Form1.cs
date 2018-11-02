@@ -29,7 +29,10 @@ namespace Projekt
             categories.Categoriess(lvCategories, comboKategori);
 
             updatefrequency.AddFrequency(comboFrekvens);
-            updatefrequency.List(lvPodcasts);
+            updatefrequency.Updates(updatefrequency.List(lvPodcasts));
+            
+            //behövs overload med frequency
+            //updatefrequency.Frequency(updatefrequency.Updates(updatefrequency.List(lvPodcasts)), lvPodcasts);
 
             spellista.FullRowSelect(lvPodcasts);
             spellista.SelectedIndex(comboFrekvens, comboKategori);
