@@ -26,17 +26,18 @@ namespace Projekt
             txtBoxDescription.Text = (Regex.Replace(description[i].InnerText, @"<.*?>", ""));
         }
 
-        public void BtnNewPod(string url, ComboBox comboFrekvens, ComboBox comboCategory, ListView podcast, ListBox lbAvsnitt, TextBox txtBoxURL)
+        public async Task BtnNewPod(string url, ComboBox comboFrekvens, ComboBox comboCategory, ListView podcast, ListBox lbAvsnitt, TextBox txtBoxURL)
         {
             lbAvsnitt.Items.Clear();
             var syndicationFeed = LoadFeed(CreateXmlReader(url));
             int i = Count(syndicationFeed);
-
             string[] row = { i.ToString(), syndicationFeed.Title.Text, comboFrekvens.SelectedItem.ToString(),
                       comboCategory.SelectedItem.ToString(), url, DateTime.Now.ToString() };
 
-            AddRow(podcast, AddContent(row));
-            CreateXmlReader(url).Close();
+            await Task.Delay(50);
+
+            AddContent(podcast, AddContent(row));
+            CreateXmlReader(url).Close();            
             txtBoxURL.Clear();
 
         }
@@ -69,13 +70,15 @@ namespace Projekt
         {
             return XmlReader.Create(url);
         }
+
         public ListViewItem AddContent(string[] myRow)
         {
             return new ListViewItem(myRow);
         }
 
-        public void AddRow(ListView listView, ListViewItem listviewitem)
+        public void AddContent(ListView listView, ListViewItem listviewitem)
         {
+            //overload method
             listView.Items.Add(listviewitem);
         }
 

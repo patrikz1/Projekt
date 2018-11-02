@@ -11,26 +11,15 @@ using System.Text.RegularExpressions;
 
 namespace Projekt
 {
-    public class Spellista
+    public class Spellista : Interface
     {      
-       
+
         public void HideSelection (ListView podcast, ListView categories)
         {
             podcast.HideSelection = false;
             categories.HideSelection = false;
         }
        
-        public void BtnRemovePod(ListView podcasts, ListBox lbAvsnitt)
-        {
-            foreach(ListViewItem item in podcasts.Items)
-            {
-                if (item.Selected)
-                {
-                    podcasts.Items.Remove(item);
-                    lbAvsnitt.Items.Clear();
-                }
-            }
-        }
 
         public void SelectedIndex(ComboBox comboFrekvens, ComboBox comboCategory)
         {
@@ -43,7 +32,18 @@ namespace Projekt
             listView.FullRowSelect = true;
         }
 
-        
-      
+        public void BtnRemovePod(ListView podcasts, ListBox lbAvsnitt)
+        {
+            foreach (ListViewItem item in podcasts.Items)
+            {
+                if (item.Selected)
+                {
+                    podcasts.Items.Remove(item);
+                    lbAvsnitt.Items.Clear();
+                }
+            }
+        }
+
+
     }
 }

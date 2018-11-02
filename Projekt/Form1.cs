@@ -44,16 +44,16 @@ namespace Projekt
 
         }
 
-        private void btnNewPod_Click(object sender, EventArgs e)
+        private async void btnNewPod_Click(object sender, EventArgs e)
         {
             var feeds = new Feeds();
-            feeds.BtnNewPod(txtBoxURL.Text, comboFrekvens, comboKategori, lvPodcasts,lbAvsnitt,txtBoxURL);                       
+            await feeds.BtnNewPod(txtBoxURL.Text, comboFrekvens, comboKategori, lvPodcasts, lbAvsnitt, txtBoxURL);                     
         }
       
         private void btnNewCategory_Click(object sender, EventArgs e)
         {
             var categories = new Categories();
-            categories.AddCategories(lvCategories, comboKategori, txtBoxCategories.Text.ToString(),txtBoxCategories);         
+            categories.AddCategories(lvCategories, comboKategori, txtBoxCategories.Text.ToString(),txtBoxCategories);
 
         }
 
